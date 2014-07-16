@@ -35,7 +35,7 @@ public class PortRoute extends RouteBuilder {
                 	 System.out.println(key + "----" + headers.get(key) + "----" + headers.get(key).getClass());
                 	 
                  }
-                 
+                 	
                  System.out.println(headers.size());
                  
                 if ( _service == null) {
@@ -48,7 +48,11 @@ public class PortRoute extends RouteBuilder {
             }).convertBodyTo(String.class)
             .to("file:////Users/venusurampudi/Desktop/soapreq.xml")
             .to("switchyard://JMSInterface")
-            .to("switchyard://InvalidJMSInterface");
+            .to("switchyard://InvalidJMSInterface").bean(ManifestValidate.class, "isValid")
+            .choice()
+            ;
+            
+            ;
 
     }
 }

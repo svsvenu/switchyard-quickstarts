@@ -89,6 +89,9 @@
       <soap:binding.soap>
         <soap:wsdl>IRS-MultiElementSearchService-1-0.wsdl</soap:wsdl>
         <soap:contextPath>attach</soap:contextPath>
+        <soap:inInterceptors>
+          <soap:interceptor class="SOAPInterceptor"/>
+        </soap:inInterceptors>
       </soap:binding.soap>
     </sca:service>
   </sca:composite>
