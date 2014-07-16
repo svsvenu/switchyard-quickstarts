@@ -1,0 +1,6 @@
+if (outcome == success) of /subsystem=messaging/hornetq-server=default/jms-queue=ValidRequestQueue:read-resource
+    jms-queue remove --queue-address=ValidRequestQueue
+end-if
+if (outcome == success) of /subsystem=messaging/hornetq-server=default/jms-queue=InvalidRequestQueue:read-resource
+    jms-queue remove --queue-address=InvalidRequestQueue
+end-if
