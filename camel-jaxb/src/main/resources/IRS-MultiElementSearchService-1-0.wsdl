@@ -1,0 +1,127 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+				  xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" 
+				  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+				  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+				  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+				  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+				  xmlns:irs="urn:us:gov:treasury:irs:common" 
+				  xmlns:irsHDR="urn:us:gov:treasury:irs:msg:header" 
+				  xmlns:irsBusHDR="urn:us:gov:treasury:irs:msg:enterprisebusinessheader"
+				  xmlns:irsMSG="urn:us:gov:treasury:irs:msg:getexchangedata"
+				  xmlns="urn:us:gov:treasury:irs:srv:getexchangedata"
+				  xmlns:wsp="http://www.w3.org/ns/ws-policy" 
+				  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" 
+				  xmlns:fi="http://java.sun.com/xml/ns/wsit/2006/09/policy/fastinfoset/service" 
+				  xmlns:tcp="http://java.sun.com/xml/ns/wsit/2006/09/policy/soaptcp/service" 
+				  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" 
+				  xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" 
+				  xmlns:sc="http://schemas.sun.com/2006/03/wss/server" 
+				  xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy"  
+				  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+				 xmlns:tns="urn:switchyard-quickstart-demo:math:1.0"
+				  name="GetMultielementSearch-1.0" 
+				  targetNamespace="urn:us:gov:treasury:irs:srv:getexchangedata">			  
+	<wsdl:documentation>
+		<WSDLComponent>
+			<DescriptionAndSemantics>This service will return the multi element search data</DescriptionAndSemantics>
+			<Provider>ESB CDR provider</Provider>
+			<EndPointInformation/>
+			<ChannelsSupported/>
+			<Operator/>
+			<AvailabilityInformation/>
+			<CapacityInformation/>
+			<PolicyGuardImplementation/>
+			<AccessControl/>
+			<Dependency/>
+			<ChargeBackInformation/>
+			<ProvisioningInformation/>
+			<Consumers>Example Consumer</Consumers>
+		</WSDLComponent>
+		<Component>
+			<DictionaryEntryNm>Policy Data Request Type</DictionaryEntryNm>
+			<MajorVersionNum>1</MajorVersionNum>
+			<MinorVersionNum>0</MinorVersionNum>
+			<VersionEffectiveBeginDt>2014-1-10</VersionEffectiveBeginDt>
+			<VersionDescriptionTxt>Initial version ACA 5.0 XML LIBRARY 8.0 as of 04042014</VersionDescriptionTxt>
+			<DescriptionTxt>Message payload for the service requesting Multi element data</DescriptionTxt>
+		</Component>
+	</wsdl:documentation>
+	<wsdl:types>
+		  <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:switchyard-quickstart-demo:math:1.0">
+			<complexType name="addNumbersResponse">
+                    <sequence>
+                        <element name="return" type="xsd:int" />
+                    </sequence>
+                </complexType>
+                <element name="addNumbersResponse" type="tns:addNumbersResponse" />
+                <element name="addNumbers2Response" type="tns:addNumbersResponse" />
+                <element name="addNumbers3Response" type="tns:addNumbersResponse" />
+
+                <complexType name="addNumbers">
+                    <sequence>
+                        <element name="number1" type="xsd:int" />
+                        <element name="number2" type="xsd:int" />
+                    </sequence>
+                </complexType>
+                <element name="addNumbers" type="tns:addNumbers" />
+                <element name="addNumbers2" type="tns:addNumbers" />
+                <element name="addNumbers3" type="tns:addNumbers" />
+
+                <element name="AddNumbersFault" type="tns:AddNumbersFault" />
+                <complexType name="AddNumbersFault">
+                    <sequence>
+                        <element name="detail" type="xsd:string" />
+                        <element name="message" type="xsd:string" />
+                    </sequence>
+                </complexType>
+			
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="Fault">
+		<wsdl:part name="fault" element="tns:addNumbers"/>
+	</wsdl:message>
+	<wsdl:message name="MultiElementSearchDataRequest">
+		<wsdl:part name="MultiElementSearchDataRequest" element="tns:addNumbers"/>
+	</wsdl:message>	
+	<wsdl:message name="MultiElementSearchDataResponse">
+		<wsdl:part name="MultiElementSearchDataResponse" element="tns:addNumbers"/>
+	</wsdl:message>
+	<wsdl:message name="InfrastructureContextHeader">
+		<wsdl:part name="InfrastructureContextHeader" element="tns:addNumbers"/>
+	</wsdl:message>
+
+	<wsdl:message name="EnterpriseBusinessHeader">
+		<wsdl:part name="EnterpriseBusinessHeader" element="tns:addNumbers"/>
+	</wsdl:message>
+
+	<wsdl:portType name="getMultiElementSearchDataPort">
+		<wsdl:operation name="getMultiElementSearchData">
+			<wsdl:input message="MultiElementSearchDataRequest"/>
+			<wsdl:output message="MultiElementSearchDataResponse"/>
+			<wsdl:fault name="fault" message="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="getMultiElementSearchDataBinding" type="getMultiElementSearchDataPort">
+		<soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getMultiElementSearchData">
+			<soapbind:operation soapAction="getMultiElementSearchData"/>
+			<wsdl:input>
+				<soapbind:header message="EnterpriseBusinessHeader" part="EnterpriseBusinessHeader" use="literal"/>		
+				<soapbind:header message="InfrastructureContextHeader" part="InfrastructureContextHeader" use="literal"/>
+				<soapbind:body parts="MultiElementSearchDataRequest" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body parts="MultiElementSearchDataResponse" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soapbind:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="getMultiElementSearchDataService">
+      <wsdl:port name="getMultiElementSearchDataPort" binding="getMultiElementSearchDataBinding">
+         <soapbind:address location="https://localhost:8080/Multielement_search_Data_WS/getMultiElementSearchPort"/>
+      </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

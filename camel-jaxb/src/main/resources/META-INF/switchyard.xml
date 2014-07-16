@@ -15,20 +15,81 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<switchyard xmlns="urn:switchyard-config:switchyard:1.0">
-    <composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="camel-jaxb" targetNamespace="urn:switchyard-quickstart:camel-jaxb:1.0">
-        <sca:service xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="GreetingService" promote="GreetingService/GreetingService">
-            <http:binding.http xmlns:http="urn:switchyard-component-http:config:1.0">
-                <http:contextPath>camel-binding</http:contextPath>
-            </http:binding.http>
-        </sca:service>
-        <component name="GreetingService">
-            <implementation.camel xmlns="urn:switchyard-component-camel:config:1.0">
-                <java class="org.switchyard.quickstarts.camel.jaxb.GreetingServiceRoute"/>
-            </implementation.camel>
-            <service name="GreetingService">
-                <interface.java interface="org.switchyard.quickstarts.camel.jaxb.GreetingService"/>
-            </service>
-        </component>
-    </composite>
+<switchyard xmlns="urn:switchyard-config:switchyard:1.0" xmlns:bean="urn:switchyard-component-bean:config:1.0" xmlns:camel="urn:switchyard-component-camel:config:1.0" xmlns:http="urn:switchyard-component-http:config:1.0" xmlns:jca="urn:switchyard-component-jca:config:1.0" xmlns:jms="urn:switchyard-component-camel-jms:config:1.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" xmlns:soap="urn:switchyard-component-soap:config:1.0">
+  <sca:composite name="camel-jaxb" targetNamespace="urn:switchyard-quickstart:camel-jaxb:1.0">
+    <sca:service name="GreetingService" promote="GreetingService/GreetingService">
+      <http:binding.http>
+        <http:contextPath>camel-binding</http:contextPath>
+      </http:binding.http>
+    </sca:service>
+    <sca:component name="GreetingService">
+      <camel:implementation.camel>
+        <camel:java class="org.switchyard.quickstarts.camel.jaxb.GreetingServiceRoute"/>
+      </camel:implementation.camel>
+      <sca:service name="GreetingService">
+        <sca:interface.java interface="org.switchyard.quickstarts.camel.jaxb.GreetingService"/>
+      </sca:service>
+    </sca:component>
+    <sca:component name="PortRoute">
+      <camel:implementation.camel>
+        <camel:java class="org.switchyard.quickstarts.camel.jaxb.PortRoute"/>
+      </camel:implementation.camel>
+      <sca:service name="getMultiElementSearchDataPort">
+        <sca:interface.wsdl interface="IRS-MultiElementSearchService-1-0.wsdl#wsdl.porttype(getMultiElementSearchDataPort)"/>
+      </sca:service>
+      <sca:reference name="JMSInterface">
+        <sca:interface.java interface="org.switchyard.quickstarts.camel.jaxb.JMSInterface"/>
+      </sca:reference>
+      <sca:reference name="InvalidJMSInterface">
+        <sca:interface.java interface="org.switchyard.quickstarts.camel.jaxb.JMSInterface"/>
+      </sca:reference>
+    </sca:component>
+    <sca:reference name="JMSInterface" multiplicity="0..1" promote="PortRoute/JMSInterface">
+      <sca:interface.java interface="org.switchyard.quickstarts.camel.jaxb.JMSInterface"/>
+      <jms:binding.jms name="jms1">
+        <jms:queue>ValidRequestQueue</jms:queue>
+        <jms:connectionFactory>#ConnectionFactory</jms:connectionFactory>
+      </jms:binding.jms>
+    </sca:reference>
+    <sca:component name="ValidRequestProcessBean">
+      <bean:implementation.bean class="org.switchyard.quickstarts.camel.jaxb.ValidRequestProcessBean"/>
+      <sca:service name="ValidRequestProcess">
+        <sca:interface.java interface="org.switchyard.quickstarts.camel.jaxb.ValidRequestProcess"/>
+      </sca:service>
+    </sca:component>
+    <sca:service name="ValidRequestProcess" promote="ValidRequestProcessBean/ValidRequestProcess">
+      <sca:interface.java interface="org.switchyard.quickstarts.camel.jaxb.ValidRequestProcess"/>
+      <jms:binding.jms name="jms1">
+        <jms:queue>ValidRequestQueue</jms:queue>
+        <jms:connectionFactory>#ConnectionFactory</jms:connectionFactory>
+      </jms:binding.jms>
+    </sca:service>
+    <sca:reference name="InvalidJMSInterface" multiplicity="0..1" promote="PortRoute/InvalidJMSInterface">
+      <sca:interface.java interface="org.switchyard.quickstarts.camel.jaxb.JMSInterface"/>
+      <jms:binding.jms name="jms1">
+        <jms:queue>InvalidRequestQueue</jms:queue>
+        <jms:connectionFactory>#ConnectionFactory</jms:connectionFactory>
+      </jms:binding.jms>
+    </sca:reference>
+    <sca:component name="InvalidRequestProcessBeanBean">
+      <bean:implementation.bean class="org.switchyard.quickstarts.camel.jaxb.InvalidRequestProcessBeanBean"/>
+      <sca:service name="InvalidRequestProcessBean">
+        <sca:interface.java interface="org.switchyard.quickstarts.camel.jaxb.InvalidRequestProcessBean"/>
+      </sca:service>
+    </sca:component>
+    <sca:service name="InvalidRequestProcessBean" promote="InvalidRequestProcessBeanBean/InvalidRequestProcessBean">
+      <sca:interface.java interface="org.switchyard.quickstarts.camel.jaxb.InvalidRequestProcessBean"/>
+      <jms:binding.jms name="jms1">
+        <jms:queue>InvalidRequestQueue</jms:queue>
+        <jms:connectionFactory>#ConnectionFactory</jms:connectionFactory>
+      </jms:binding.jms>
+    </sca:service>
+    <sca:service name="getMultiElementSearchDataPort" promote="PortRoute/getMultiElementSearchDataPort">
+      <sca:interface.wsdl interface="IRS-MultiElementSearchService-1-0.wsdl#wsdl.porttype(getMultiElementSearchDataPort)"/>
+      <soap:binding.soap>
+        <soap:wsdl>IRS-MultiElementSearchService-1-0.wsdl</soap:wsdl>
+        <soap:contextPath>attach</soap:contextPath>
+      </soap:binding.soap>
+    </sca:service>
+  </sca:composite>
 </switchyard>

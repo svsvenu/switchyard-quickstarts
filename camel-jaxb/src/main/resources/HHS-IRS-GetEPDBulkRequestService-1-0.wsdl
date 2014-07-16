@@ -1,0 +1,112 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+   xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" 
+   xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+   xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+   xmlns:irs="urn:us:gov:treasury:irs:common" 
+   xmlns:irsHDR="urn:us:gov:treasury:irs:msg:acabusinessheader" 
+   xmlns:irsMSG="urn:us:gov:treasury:irs:msg:hhsirsacabulkrequestexchange"
+   xmlns:irsEPD="urn:us:gov:treasury:irs:ext:aca:isr:4.0" 
+   xmlns="urn:us:gov:treasury:irs:srv:getepdbulkrequest" 
+   name="GetEPDBulkRequestService-1.0" 
+   targetNamespace="urn/us/gov/treasury/irs/srv/getepdbulkrequest"  
+   xmlns:wsp="http://www.w3.org/ns/ws-policy" 
+   xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" 
+   xmlns:fi="http://java.sun.com/xml/ns/wsit/2006/09/policy/fastinfoset/service" 
+   xmlns:tcp="http://java.sun.com/xml/ns/wsit/2006/09/policy/soaptcp/service" 
+   xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" 
+   xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" 
+   xmlns:sc="http://schemas.sun.com/2006/03/wss/server" 
+   xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy"  
+   xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+	<wsdl:documentation>
+		<WSDLComponent>
+			<DescriptionAndSemantics>This service will accept a EPD bulk payload request</DescriptionAndSemantics>
+			<Provider>Example Provider</Provider>
+			<EndPointInformation/>
+			<ChannelsSupported/>
+			<Operator/>
+			<AvailabilityInformation/>
+			<CapacityInformation/>
+			<PolicyGuardImplementation/>
+			<AccessControl/>
+			<Dependency/>
+			<ChargeBackInformation/>
+			<ProvisioningInformation/>
+			<Consumers>Example Consumer</Consumers>
+		</WSDLComponent>
+		<Component>
+			<DictionaryEntryNm>Get EPD (Income and Family Size Verification) Bulk Request</DictionaryEntryNm>
+			<MajorVersionNum>1</MajorVersionNum>
+			<MinorVersionNum>0</MinorVersionNum>
+			<VersionEffectiveBeginDt>2012-09-10</VersionEffectiveBeginDt>
+			<VersionDescriptionTxt>version: ACA EPD XML LIBRARY 8.0 as of 05072014</VersionDescriptionTxt>
+			<DescriptionTxt>WSDL Definition: This service will accept a EPD bulk payload request.</DescriptionTxt>
+		</Component>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="urn:us:gov:treasury:irs:msg:hhsirsacabulkrequestexchange" schemaLocation="relocated/HHS-IRS-ACABulkRequestExchangeMessage-1-0.xsd"/>
+			<xsd:import namespace="urn:us:gov:treasury:irs:msg:acabusinessheader" schemaLocation="relocated/HHS-IRS-ACABusinessHeaderMessage-1-0.xsd"/>
+			<xsd:import namespace="urn:us:gov:treasury:irs:ext:aca:isr:4.0" schemaLocation="relocated/IRS-EXT-ACA-ISR-4-0.xsd"/>
+			<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="relocated/IRS-CAC-8-0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="Fault">
+		<wsdl:part name="fault" element="irs:ErrorMessageDetail"/>
+	</wsdl:message>
+	<wsdl:message name="GetEPDBulkRequestExchange">
+		<wsdl:part name="GetEPDBulkRequestExchange" element="irsMSG:ACABulkRequestExchange"/>
+	</wsdl:message>
+	<wsdl:message name="GetEPDBulkRequestExchangeResponse">
+		<wsdl:part name="GetEPDBulkRequestExchangeResponse" element="irsMSG:ACABulkRequestExchangeResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ACABusinessHeader">
+		<wsdl:part name="ACABusinessHeader" element="irsHDR:ACABusinessHeader"/>
+	</wsdl:message>
+	
+	<wsdl:message name="ACABatchManifestDetail">
+		<wsdl:part name="ACABatchManifestDetail" element="irsEPD:ACABatchManifestDetail"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="GetEPDBulkRequestExchangePortType">
+		<wsdl:operation name="GetEPDBulkRequestExchange">
+			<wsdl:input message="GetEPDBulkRequestExchange"/>
+			<wsdl:output message="GetEPDBulkRequestExchangeResponse"/>
+			<wsdl:fault name="fault" message="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GetEPDBulkRequestExchangeBinding" type="GetEPDBulkRequestExchangePortType">
+		<wsp:PolicyReference URI="#Addressing" />
+		<soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetEPDBulkRequestExchange">
+			<soapbind:operation soapAction="GetEPDBulkRequestExchange"/>
+			<wsdl:input>
+				<soapbind:header message="ACABusinessHeader" part="ACABusinessHeader" use="literal"/>
+				<soapbind:header message="ACABatchManifestDetail" part="ACABatchManifestDetail" use="literal"/>
+				<soapbind:body parts="GetEPDBulkRequestExchange" use="literal" />		
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:header message="ACABusinessHeader" part="ACABusinessHeader" use="literal"/>
+				<soapbind:body parts="GetEPDBulkRequestExchangeResponse" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soapbind:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GetEPDBulkRequestExchangeService">
+		<wsdl:port name="GetEPDBulkRequestExchangePort" binding="GetEPDBulkRequestExchangeBinding">
+			<soapbind:address location="https://localhost:8443/BRMGateway_EPD_1.0_WS/GetEPDBulkRequestExchangePortType"/>
+		</wsdl:port>
+	</wsdl:service>
+	<!-- <wsp:Policy wsu:Id="Addressing"
+        xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsp:ExactlyOne>
+			<wsp:All>
+				<wsaw:UsingAddressing wsdl:required="true" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" /> 
+			</wsp:All>
+		</wsp:ExactlyOne>       
+    </wsp:Policy> -->
+</wsdl:definitions>

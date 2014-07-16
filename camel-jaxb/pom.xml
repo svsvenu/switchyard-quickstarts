@@ -74,6 +74,34 @@
             <artifactId>commons-io</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+        	<groupId>org.switchyard.components</groupId>
+        	<artifactId>switchyard-component-bean</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.switchyard</groupId>
+        	<artifactId>switchyard-transform</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.switchyard</groupId>
+        	<artifactId>switchyard-validate</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.switchyard.components</groupId>
+        	<artifactId>switchyard-component-test-mixin-cdi</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.switchyard.components</groupId>
+        	<artifactId>switchyard-component-soap</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.switchyard.components</groupId>
+        	<artifactId>switchyard-component-camel-jms</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.switchyard.components</groupId>
+        	<artifactId>switchyard-component-jca</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -89,9 +117,22 @@
                         <goals>
                             <goal>deploy</goal>
                         </goals>
-                        <configuration>
+                      <!--   <configuration>
                             <skip>${deploy.skip}</skip>
                         </configuration>
+                         -->
+                          <configuration>
+                            <beforeDeployment>
+                                <scripts>
+                                    <script>config.cli</script>
+                                </scripts>
+                            </beforeDeployment>
+                            <skip>${deploy.skip}</skip>
+                        </configuration>
+                       
+                        
+                        
+                        
                     </execution>
                     <execution>
                         <id>undeploy</id>
@@ -99,9 +140,20 @@
                         <goals>
                             <goal>undeploy</goal>
                         </goals>
-                        <configuration>
+                        <!-- <configuration>
+                            <skip>${deploy.skip}</skip>
+                        </configuration> -->
+                        
+                          <configuration>
+                            <afterDeployment>
+                                <scripts>
+                                    <script>unconfig.cli</script>
+                                </scripts>
+                            </afterDeployment>
                             <skip>${deploy.skip}</skip>
                         </configuration>
+                        
+                        
                     </execution>
                 </executions>
             </plugin>
@@ -113,6 +165,24 @@
                     <classpathScope>test</classpathScope>
                     <mainClass>org.switchyard.quickstarts.camel.jaxb.JAXBClient</mainClass>
                 </configuration>
+            </plugin>
+            <plugin>
+            	<groupId>org.switchyard</groupId>
+            	<artifactId>switchyard-plugin</artifactId>
+            	<executions>
+            		<execution>
+            			<goals>
+            				<goal>configure</goal>
+            			</goals>
+            		</execution>
+            	</executions>
+            	<configuration>
+            		<scannerClassNames>
+            			<param>
+            				org.switchyard.transform.config.model.TransformSwitchYardScanner
+            			</param>
+            		</scannerClassNames>
+            	</configuration>
             </plugin>
         </plugins>
     </build>
