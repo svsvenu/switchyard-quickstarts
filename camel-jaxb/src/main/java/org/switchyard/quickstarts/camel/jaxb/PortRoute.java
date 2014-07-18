@@ -8,6 +8,7 @@ import javax.xml.bind.JAXBContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.http.Header;
 import org.switchyard.common.camel.SwitchYardMessage;
 import org.switchyard.component.bean.Reference;
 
@@ -24,6 +25,10 @@ public class PortRoute extends RouteBuilder {
 		
         from("switchyard://getMultiElementSearchDataPort")
             .to("file:////Users/venusurampudi/Desktop/incomingsoap.xml")
+            .bean(ManifestValidate.class, "isValid")
+            .choice()
+            		.when( header("isValid").isEqualTo("false") ).to("switchyard://JMSInterface")
+            		.otherwise().to("switchyard://InvalidJMSInterface")
             .process(new Processor() {
                 @Override
                 public void process(Exchange exchange) throws Exception {
@@ -46,13 +51,12 @@ public class PortRoute extends RouteBuilder {
                  
                 }
             }).convertBodyTo(String.class)
-            .to("file:////Users/venusurampudi/Desktop/soapreq.xml")
-            .to("switchyard://JMSInterface")
-            .to("switchyard://InvalidJMSInterface").bean(ManifestValidate.class, "isValid")
-            .choice()
-            ;
+            .to("file:////Users/venusurampudi/Desktop/soapreq.xml").log("${body}");
             
-            ;
+            
+            
+            
+            
 
     }
 }
