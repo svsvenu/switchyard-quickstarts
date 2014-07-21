@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by ﻿IRS (IRS) -->
+<xsd:schema xmlns="urn:us:gov:treasury:irs:msg:chunknotification" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:irs="urn:us:gov:treasury:irs:common" xmlns:isrepd="urn:us:gov:treasury:irs:ext:aca:isr:4.0" targetNamespace="urn:us:gov:treasury:irs:msg:chunknotification" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Component>
+				<DictionaryEntryNm>IRS Message - BRE Chunk Notification Message</DictionaryEntryNm>
+				<MajorVersionNum>1</MajorVersionNum>
+				<MinorVersionNum>0</MinorVersionNum>
+				<VersionEffectiveBeginDt>2013-10-28</VersionEffectiveBeginDt>
+				<VersionDescriptionTxt>Added new element in Chunk Notification Details</VersionDescriptionTxt>
+				<DescriptionTxt>Message payload for BRE chunk notification</DescriptionTxt>
+			</Component>
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- ===== Imports ===== -->
+	<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+	<xsd:import namespace="urn:us:gov:treasury:irs:ext:aca:isr:4.0" schemaLocation="../EXT/IRS-EXT-ACA-ISR-4.0.xsd"/>
+	<!-- ================================== -->
+	<!-- ===== Root Element Declarations ===== -->
+	<!-- ================================== -->
+	<xsd:element name="ChunkNotificationRequest" type="ChunkNotificationRequestType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Chunk Notification Request</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>1</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-10-28</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Wraps the chunk notification request information</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ChunkNotificationResponse" type="ChunkNotificationResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Chunk Notification Response</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-01-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Wraps the chunk notification response information</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- ============================== -->
+	<!-- ===== Root Type Defintions ===== -->
+	<!-- =============================== -->
+	<xsd:complexType name="ChunkNotificationDetailType">
+		<xsd:sequence>
+			<xsd:element ref="irs:BatchId"/>
+			<xsd:element ref="irs:HealthExchangeId"/>
+			<xsd:element ref="isrepd:DocumentSystemFileNm"/>
+			<xsd:element ref="irs:ChunkId"/>
+			<xsd:element ref="isrepd:BatchCategoryCd"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.1"/>
+	</xsd:complexType>
+	<xsd:complexType name="ChunkNotificationRequestType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>BRE Chunk Notification Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-10-28</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Added new element in Chunk Notification Details.</VersionDescriptionTxt>
+					<DescriptionTxt>Request message payload for obtaining chunk status notification</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ChunkNotificationDetail" type="ChunkNotificationDetailType"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.1"/>
+	</xsd:complexType>
+	<xsd:complexType name="ChunkNotificationResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>BRE Chunk Notification Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-01-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Response message payload for obtaining chunk status notification</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:AcknowledgementStatusCd"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.0"/>
+	</xsd:complexType>
+</xsd:schema>

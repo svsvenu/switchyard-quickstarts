@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 
+xmlns="urn:us:gov:treasury:irs:srv:receivefilestatus" 
+name="ReceiveFileStatusService-1.0" 
+targetNamespace="urn:us:gov:treasury:irs:srv:receivefilestatus"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+xmlns:irsMSG="urn:us:gov:treasury:irs:msg:receiveepdfilestatus" 
+xmlns:irs="urn:us:gov:treasury:irs:common" 
+xmlns:irsHDR="urn:us:gov:treasury:irs:msg:acabusinessheader" 
+xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"> 
+
+  <wsdl:documentation>
+		<WSDLComponent>
+			<DescriptionAndSemantics>This service Receives file rejection/delivery status from BRMG/CMS</DescriptionAndSemantics>
+			<Provider>Example Provider</Provider>
+			<EndPointInformation/>
+			<ChannelsSupported/>
+			<Operator/>
+			<AvailabilityInformation/>
+			<CapacityInformation/>
+			<PolicyGuardImplementation/>
+			<AccessControl/>
+			<Dependency/>
+			<ChargeBackInformation/>
+			<ProvisioningInformation/>
+			<Consumers>Example Consumer</Consumers>
+		</WSDLComponent>
+		<Component>
+			<DictionaryEntryNm>Receive File Status Service</DictionaryEntryNm>
+			<MajorVersionNum>1</MajorVersionNum>
+			<MinorVersionNum>0</MinorVersionNum>
+			<VersionEffectiveBeginDt>2012-09-14</VersionEffectiveBeginDt>
+			<VersionDescriptionTxt>version: ACA EPD XML LIBRARY 8.0 as of 05072014</VersionDescriptionTxt>
+			<DescriptionTxt>WSDL Definition: This service will Receive file Rejection/Delivery status from BRMG/CMS</DescriptionTxt>
+		</Component>
+	</wsdl:documentation>
+	
+<!--==== Types ==== -->
+	<wsdl:types>
+      <xsd:schema>  
+		  <xsd:import namespace="urn:us:gov:treasury:irs:msg:acabusinessheader" schemaLocation="../MSG/HHS-IRS-ACABusinessHeaderMessage-1.0.xsd"/>	  
+		  <xsd:import namespace="urn:us:gov:treasury:irs:msg:receiveepdfilestatus" schemaLocation="../MSG/IRS-ReceiveEPDFileStatusMessage-1.0.xsd"/>
+		  <xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>		  
+	  </xsd:schema>   
+    </wsdl:types>    
+    
+    <!--==== Messages ==== -->
+   	<wsdl:message name="Fault">
+		<wsdl:part name="fault" element="irs:ErrorMessageDetail"/>
+	</wsdl:message>
+    <wsdl:message name="ReceiveFileStatusResponse">
+    	<wsdl:part name="ReceiveFileStatusResponse" element="irsMSG:ReceiveFileStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ReceiveFileStatusRequest">    	 
+    	<wsdl:part name="ReceiveFileStatusRequest" element="irsMSG:ReceiveFileStatusRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ACABusinessHeader">
+  		<wsdl:part name="ACABusinessHeader" element="irsHDR:ACABusinessHeader" /> 
+  	</wsdl:message>    
+    
+    <!--==== Port Type ==== -->
+    <wsdl:portType name="ReceiveFileStatusPort"> 
+       <wsdl:operation name="ReceiveFileStatus">
+    	   <wsdl:input message="ReceiveFileStatusRequest"/>
+    	   <wsdl:output message="ReceiveFileStatusResponse"/>
+    	   <wsdl:fault name="fault" message="Fault"/>
+        </wsdl:operation> 
+    </wsdl:portType>
+
+   <!--==== Binding ==== -->
+    <wsdl:binding name="ReceiveFileStatusBinding" type="ReceiveFileStatusPort">
+    <soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>    
+	    <wsdl:operation name="ReceiveFileStatus">
+			 <soapbind:operation soapAction="ReceiveFileStatus"/>
+			<wsdl:input>
+				<soapbind:header message="ACABusinessHeader" part="ACABusinessHeader" use="literal" /> 
+				<soapbind:body parts="ReceiveFileStatusRequest" use="literal"/>
+		   </wsdl:input>
+		   <wsdl:output>
+				<soapbind:body parts="ReceiveFileStatusResponse" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+			   <soapbind:fault name="fault" use="literal"/>
+		   </wsdl:fault>
+		</wsdl:operation>     
+   </wsdl:binding>
+   
+  <!--==== Service ==== -->
+  <wsdl:service name="ReceiveFileStatusService">
+    <wsdl:port binding="ReceiveFileStatusBinding" name="ReceiveFileStatusPort">
+      <soapbind:address location="https://localhost:10501/ws/IRSACAEPD.communication.receiveFileStatus/ReceiveFileStatusPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by ﻿IRS (IRS) -->
+<xsd:schema xmlns="urn:us:gov:treasury:irs:msg:verifysubmission" xmlns:irs="urn:us:gov:treasury:irs:common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:isrepd="urn:us:gov:treasury:irs:ext:aca:isr:4.0" targetNamespace="urn:us:gov:treasury:irs:msg:verifysubmission" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Component>
+				<DictionaryEntryNm>IRS EPD Verify Submission Message</DictionaryEntryNm>
+				<MajorVersionNum>1</MajorVersionNum>
+				<MinorVersionNum>0</MinorVersionNum>
+				<VersionEffectiveBeginDt>2013-11-12</VersionEffectiveBeginDt>
+				<VersionDescriptionTxt>Added new elements to NotifyCMSInd</VersionDescriptionTxt>
+				<DescriptionTxt>Defines the request and response format for the EPD verifySubmission service</DescriptionTxt>
+			</Component>
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- ===== Imports ===== -->
+	<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+	<xsd:import namespace="urn:us:gov:treasury:irs:ext:aca:isr:4.0" schemaLocation="../EXT/IRS-EXT-ACA-ISR-4.0.xsd"/>
+	<!-- ============================ -->
+	<!-- ===== Element Declarations ===== -->
+	<!-- ============================ -->
+	<xsd:element name="VerifySubmissionRequest" type="VerifySubmissionRequestType"/>
+	<xsd:element name="VerifySubmissionResponse" type="VerifySubmissionResponseType"/>
+	<!-- ======================== -->
+	<!-- ===== Type Defintions ===== -->
+	<!-- ======================== -->
+	<xsd:complexType name="VerifySubmissionRequestType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>IRS EPD VerifySubmission Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>2</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-07-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Defines the request format for the VerifySubmission service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="VerifySubmissionRequestDetail" type="VerifySubmissionRequestDetailType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.2"/>
+	</xsd:complexType>
+	<xsd:complexType name="VerifySubmissionResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Verify Submission Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-11-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial vesion</VersionDescriptionTxt>
+					<DescriptionTxt>Defines the response format for the VerifySubmission service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="VerifySubmissionResponseDetail" type="VerifySubmissionResponseDetailType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.2"/>
+	</xsd:complexType>
+	<xsd:complexType name="VerifySubmissionRequestDetailType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Verify Submission Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>2</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-08-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Added  new elements</VersionDescriptionTxt>
+					<DescriptionTxt>Defines the request format for the VerifySubmission service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:BatchId"/>
+			<xsd:element ref="irs:BatchPartnerId"/>
+			<xsd:element ref="irs:OriginalBatchId" minOccurs="0"/>
+			<xsd:element ref="isrepd:DocumentSystemFileNm"/>
+			<xsd:element ref="irs:ReportPeriodDate"/>
+			<xsd:element ref="isrepd:BatchCategoryCd"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VerifySubmissionResponseDetailType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>VerifySubmission Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>3</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-11-12</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Added new element NotifyCMSInd</VersionDescriptionTxt>
+					<DescriptionTxt>Defines the request format for the VerifySubmission service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:SubmissionValidationCd"/>
+			<xsd:element ref="irs:NotifyCMSInd"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

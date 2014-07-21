@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+name="GetExchangeAuthorizationStatusService-1.0"
+xmlns:irshdr="urn:us:gov:treasury:irs:msg:acabusinessheader" 
+xmlns="urn:us:gov:treasury:irs:msg:getexchangeauthorizationstatus" 
+xmlns:irs="urn:us:gov:treasury:irs:common" 
+xmlns:irsmsg="urn:us:gov:treasury:irs:msg:getexchangeauthorizationstatus" 
+targetNamespace="urn:us:gov:treasury:irs:msg:getexchangeauthorizationstatus"
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:documentation>
+		<WSDLComponent>
+			<DescriptionAndSemantics>This service will provide authorization status for any given Exchange</DescriptionAndSemantics>
+			<Provider>IRS ISR</Provider>
+			<EndPointInformation/>
+			<ChannelsSupported/>
+			<Operator/>
+			<AvailabilityInformation/>
+			<CapacityInformation/>
+			<PolicyGuardImplementation/>
+			<AccessControl/>
+			<Dependency/>
+			<ChargeBackInformation/>
+			<ProvisioningInformation/>
+			<Consumers>IRS ISR</Consumers>
+		</WSDLComponent>
+		<Component>
+			<DictionaryEntryNm/>
+			<MajorVersionNum>1</MajorVersionNum>
+			<MinorVersionNum>0</MinorVersionNum>
+			<VersionEffectiveBeginDt>2012-12-10</VersionEffectiveBeginDt>
+			<VersionDescriptionTxt>version: ACA EPD XML LIBRARY 8.0 as of 05292014</VersionDescriptionTxt>
+			<DescriptionTxt>WSDL Definition: This service will send authorization status for any given exchange.</DescriptionTxt>
+		</Component>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="urn:us:gov:treasury:irs:msg:acabusinessheader" schemaLocation="../MSG/HHS-IRS-ACABusinessHeaderMessage-1.0.xsd"/>
+			<xsd:import namespace="urn:us:gov:treasury:irs:msg:getexchangeauthorizationstatus" schemaLocation="../MSG/IRS-ExchangeAuthorizationMessage-1.0.xsd"/>
+			<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ExchangeAuthorizationRequestMessage">
+		<wsdl:part name="ExchangeAuthorizationRequestBody" element="irsmsg:ExchangeAuthorizationRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ExchangeAuthorizationResponseMessage">
+		<wsdl:part name="ExchangeAuthorizationResponseBody" element="irsmsg:ExchangeAuthorizationResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ACABusinessHeader">
+		<wsdl:part name="ACABusinessHeader" element="irshdr:ACABusinessHeader">
+    </wsdl:part>
+  </wsdl:message>
+	<wsdl:message name="Fault">
+		<wsdl:part name="fault" element="irs:ErrorMessageDetail">
+    </wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="ExchangeAuthorizationPortType">
+		<wsdl:operation name="GetExchangeAuthorizationStatus">
+			<wsdl:input message="ExchangeAuthorizationRequestMessage"/>
+			<wsdl:output message="ExchangeAuthorizationResponseMessage"/>
+			<wsdl:fault name="fault" message="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ExchangeAuthorizationBinding" type="ExchangeAuthorizationPortType">
+		<soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetExchangeAuthorizationStatus">
+			<soapbind:operation soapAction="GetExchangeAuthorizationStatus"/>
+			<wsdl:input>
+				<soapbind:header message="ACABusinessHeader" part="ACABusinessHeader" use="literal">
+        </soapbind:header>
+				<soapbind:body parts="ExchangeAuthorizationRequestBody" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:header message="ACABusinessHeader" part="ACABusinessHeader" use="literal">
+        </soapbind:header>
+				<soapbind:body parts="ExchangeAuthorizationResponseBody" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soapbind:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GetExchangeAuthorizationStatusService">
+		<wsdl:port name="ExchangeAuthorizationPort" binding="ExchangeAuthorizationBinding">
+			<soapbind:address location="https://localhost:10501/ws/IRSACAExchangeAuthorization.communication.GetExchangeAuthorizationStatusService/ExchangeAuthorizationPort"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,80 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+   xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" 
+   xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+   xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+   xmlns:irs="urn:us:gov:treasury:irs:common" 
+   xmlns:irsMSG="urn:us:gov:treasury:irs:msg:notificationwindowclose"
+   xmlns="urn:us:gov:treasury:irs:srv:gethubwindownotification"
+   name="GetHubWindowNotificationService-1.0" 
+   targetNamespace="urn:us:gov:treasury:irs:srv:gethubwindownotification">
+	<wsdl:documentation>
+		<WSDLComponent>
+			<DescriptionAndSemantics>This service will..</DescriptionAndSemantics>
+			<Provider>Example Provider</Provider>
+			<EndPointInformation/>
+			<ChannelsSupported/>
+			<Operator/>
+			<AvailabilityInformation/>
+			<CapacityInformation/>
+			<PolicyGuardImplementation/>
+			<AccessControl/>
+			<Dependency/>
+			<ChargeBackInformation/>
+			<ProvisioningInformation/>
+			<Consumers>Example Consumer</Consumers>
+		</WSDLComponent>
+		<Component>
+			<DictionaryEntryNm>Hub Window Notification Service</DictionaryEntryNm>
+			<MajorVersionNum>1</MajorVersionNum>
+			<MinorVersionNum>0</MinorVersionNum>
+			<VersionEffectiveBeginDt>2012-09-14</VersionEffectiveBeginDt>
+			<VersionDescriptionTxt>version: ACA EPD XML LIBRARY 8.0 as of 05072014</VersionDescriptionTxt>
+			<DescriptionTxt>WSDL Definition: This service will receive a notification  and send a response</DescriptionTxt>
+		</Component>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="urn:us:gov:treasury:irs:msg:notificationwindowclose" schemaLocation="../MSG/IRS-NotificationWindowStatusMessage-1.0.xsd"/>
+			<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="Fault">
+		<wsdl:part name="fault" element="irs:ErrorMessageDetail"/>
+	</wsdl:message>
+	<wsdl:message name="NotificationWindowCloseRequest">
+		<wsdl:part name="NotificationWindowCloseRequest" element="irsMSG:NotificationWindowCloseRequest"/>
+	</wsdl:message>
+	<wsdl:message name="NotificationWindowCloseResponse">
+		<wsdl:part name="NotificationWindowCloseResponse" element="irsMSG:NotificationWindowCloseResponse"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="GetHubWindowNotificationPortType">
+		<wsdl:operation name="GetHubWindowNotificationRequest">
+			<wsdl:input message="NotificationWindowCloseRequest"/>
+			<wsdl:output message="NotificationWindowCloseResponse"/>
+			<wsdl:fault name="fault" message="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GetHubWindowNotificationBinding" type="GetHubWindowNotificationPortType">
+		<soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetHubWindowNotificationRequest">
+			<soapbind:operation soapAction="GetHubWindowNotificationRequest"/>
+			<wsdl:input>
+				<soapbind:body parts="NotificationWindowCloseRequest" use="literal" />		
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body parts="NotificationWindowCloseResponse" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soapbind:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GetHubWindowNotificationService">
+		<wsdl:port name="GetHubWindowNotificationPort" binding="GetHubWindowNotificationBinding">
+			<soapbind:address location="https://localhost:8443/BRMG_ESB_HubNotification/GetHubWindowNotificationPortType"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

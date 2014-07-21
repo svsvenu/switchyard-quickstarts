@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by ﻿IRS (IRS) -->
+<xsd:schema xmlns="urn:us:gov:treasury:irs:msg:verifyexchange" xmlns:irs="urn:us:gov:treasury:irs:common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:us:gov:treasury:irs:msg:verifyexchange" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Component>
+				<DictionaryEntryNm>IRS EPD Verify Exchange Message</DictionaryEntryNm>
+				<MajorVersionNum>1</MajorVersionNum>
+				<MinorVersionNum>0</MinorVersionNum>
+				<VersionEffectiveBeginDt>2013-10-30</VersionEffectiveBeginDt>
+				<VersionDescriptionTxt>Initial Verion</VersionDescriptionTxt>
+				<DescriptionTxt>Message payload for obtaining information used for the verify exchange service</DescriptionTxt>
+			</Component>
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- ===== Imports ===== -->
+	<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+	<!-- ============================ -->
+	<!-- ===== Element Declarations ===== -->
+	<!-- ============================ -->
+	<xsd:element name="VerifyExchangeRequest" type="VerifyExchangeRequestType"/>
+	<xsd:element name="VerifyExchangeResponse" type="VerifyExchangeResponseType"/>
+	<!-- ======================== -->
+	<!-- ===== Type Defintions ===== -->
+	<!-- ======================== -->
+	<xsd:complexType name="VerifyExchangeRequestType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Verify Exchange Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-10-30</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Message payload for the exchange verfication request service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:BatchPartnerId"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.0"/>
+	</xsd:complexType>
+	<xsd:complexType name="VerifyExchangeResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>IRS EPD VerifySubmission Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-10-30</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial vesion</VersionDescriptionTxt>
+					<DescriptionTxt>Message payload for the exchange verfication response service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:ValidExchangeInd"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.0"/>
+	</xsd:complexType>
+</xsd:schema>

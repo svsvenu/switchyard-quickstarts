@@ -86,7 +86,8 @@
     </sca:service>
     <sca:service name="getMultiElementSearchDataPort" promote="PortRoute/getMultiElementSearchDataPort">
       <sca:interface.wsdl interface="IRS-MultiElementSearchService-1-0.wsdl#wsdl.porttype(getMultiElementSearchDataPort)"/>
-      <soap:binding.soap>
+      <soap:binding.soap name="soap1">
+        <soap:contextMapper soapHeadersType="DOM"/>
         <soap:wsdl>IRS-MultiElementSearchService-1-0.wsdl</soap:wsdl>
         <soap:contextPath>attach</soap:contextPath>
         <soap:inInterceptors>
@@ -94,5 +95,25 @@
         </soap:inInterceptors>
       </soap:binding.soap>
     </sca:service>
+    <sca:service name="GetEPDBulkRequestExchangePortType" promote="EPDRoute/GetEPDBulkRequestExchangePortType">
+      <sca:interface.wsdl interface="HHS-IRS-GetEPDBulkRequestService-1-0.wsdl#wsdl.porttype(GetEPDBulkRequestExchangePortType)"/>
+      <soap:binding.soap name="soap1">
+        <soap:contextMapper soapHeadersType="XML"/>
+        <soap:wsdl>wsdl/ACA_XML_LIBRARY_8.0/SRV/HHS-IRS-GetEPDBulkRequestService-1.0.wsdl</soap:wsdl>
+        <soap:wsdlPort>GetEPDBulkRequestExchangePort</soap:wsdlPort>
+        <soap:contextPath>epd</soap:contextPath>
+        <soap:inInterceptors>
+          <soap:interceptor class="SOAPInterceptor"/>
+        </soap:inInterceptors>
+      </soap:binding.soap>
+    </sca:service>
+    <sca:component name="EPDRoute">
+      <camel:implementation.camel>
+        <camel:java class="com.switchyard.quickstarts.camel.jaxb.interceptors.EPDRoute"/>
+      </camel:implementation.camel>
+      <sca:service name="GetEPDBulkRequestExchangePortType">
+        <sca:interface.wsdl interface="HHS-IRS-GetEPDBulkRequestService-1-0.wsdl#wsdl.porttype(GetEPDBulkRequestExchangePortType)"/>
+      </sca:service>
+    </sca:component>
   </sca:composite>
 </switchyard>

@@ -107,8 +107,8 @@
 		<wsdl:operation name="getMultiElementSearchData">
 			<soapbind:operation soapAction="getMultiElementSearchData"/>
 			<wsdl:input>
-				<soapbind:header message="EnterpriseBusinessHeader" part="EnterpriseBusinessHeader" use="literal"/>		
-				<soapbind:header message="InfrastructureContextHeader" part="InfrastructureContextHeader" use="literal"/>
+<!-- 				<soapbind:header message="EnterpriseBusinessHeader" part="EnterpriseBusinessHeader" use="literal"/>		
+ -->				<soapbind:header message="InfrastructureContextHeader" part="InfrastructureContextHeader" use="literal"/>
 				<soapbind:body parts="MultiElementSearchDataRequest" use="literal" />
 			</wsdl:input>
 			<wsdl:output>

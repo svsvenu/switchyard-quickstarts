@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings version="2.0" 
+      xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+      xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
+      
+      <jaxb:bindings schemaLocation="MSG/IRS-BulkFileProcessingNotificationMessage-1.0.xsd" node="//xsd:schema">
+              <jaxb:schemaBindings>
+                  <jaxb:package name="us.gov.treasury.irs.ptc.bulkfileproc" />
+              </jaxb:schemaBindings>
+      </jaxb:bindings>
+      <jaxb:bindings schemaLocation="MSG/HHS-IRS-ACABusinessHeaderMessage-1.0.xsd" node="//xsd:schema">
+              <jaxb:schemaBindings>
+                  <jaxb:package name="us.gov.treasury.irs.ptc.bulkfileproc.common" />
+              </jaxb:schemaBindings>
+      </jaxb:bindings>
+      <jaxb:bindings schemaLocation="COMMON/IRS-CAC-8.2.xsd" node="//xsd:schema">
+              <jaxb:schemaBindings>
+                  <jaxb:package name="us.gov.treasury.irs.ptc.bulkfileproc.common" />
+              </jaxb:schemaBindings>
+      </jaxb:bindings>
+      <jaxb:bindings schemaLocation="EXT/IRS-EXT-ACA-ISR-3.0.xsd" node="//xsd:schema">
+              <jaxb:schemaBindings>
+                  <jaxb:package name="us.gov.treasury.irs.ptc.bulkfileproc.isrext" />
+              </jaxb:schemaBindings>
+      </jaxb:bindings>
+</jaxb:bindings>

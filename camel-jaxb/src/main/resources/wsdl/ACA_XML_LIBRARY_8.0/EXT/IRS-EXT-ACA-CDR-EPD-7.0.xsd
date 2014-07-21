@@ -1,0 +1,1360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by ﻿IRS (IRS) -->
+<xsd:schema xmlns="urn:us:gov:treasury:irs:ext:aca:cdrext" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:epd="urn:us:gov:treasury:irs:common" targetNamespace="urn:us:gov:treasury:irs:ext:aca:cdrext" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<release>ACA CDR EPD Release 1.0</release>
+		</xsd:appinfo>
+		<xsd:documentation>
+		    !!!!!!!!!!! NOTICE:  This ACA CDR EPD XML vocabulary is for ACA development purposes !!!!!!!!!!  
+		 </xsd:documentation>
+	</xsd:annotation>
+	<!-- ===== Imports ===== -->
+	<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+	<!-- ============================================= -->
+	<!-- =======================                    Local CAC Global Elements                   ================ -->
+	<!-- ============================================= -->
+	<xsd:element name="AssociatedHouseholdDtl" type="PersonInformationGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Associated Household Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The elements associated to housedoldin the exchange generated monthly report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AssociatedPolicyGrp" type="AssociatedPolicyGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Associated Policy</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Policies on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="BusinessNameDtl" type="BusinessNameDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Business Name </DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2008-01-08</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>EFileTypes, December 14, 2007</VersionDescriptionTxt>
+					<DescriptionTxt>Type for a Business Name, 2 Name Lines</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="BusinessAddressDtl" type="BusinessAddressDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Business Address Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-01-18</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>A physical address for sending communications of a business, organization.Not the post office box address.</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CoveredIndividualGrp" type="CoveredIndividualGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Covered Individual Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Covered individual details on exchange generated monthly report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CompletePersonNameDtl" type="CompletePersonNameDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Complete Person Name Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Full name of a person</DescriptionTxt>
+					<DataElementId/>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DependentDtl" type="EPDPersonGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Dependent DetailType</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name and SSN of the individual </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DependentDtlGrp" type="DependentDtlGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Dependent Detail Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-21</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Dependent details</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EPDPersonGrp" type="EPDPersonGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exchange Periodic Data Person Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name and SSN of the individual </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EmployerMECDtl" type="EmployerMECDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Employer MEC Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-21</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Appeal details on Insured employer generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EmployerPlansOfferedGrp" type="EmployerPlansOfferedGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>EmployerPlansOffered</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-09-19</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Employer plans offered through SHOP</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EmployeeCoverageDtl" type="EmployeeCoverageDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Employee Coverage Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-09-19</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The employee SHOP roster coverage details in the montly report </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EmployeeSHOPPolicyGrp" type="EmployeeSHOPPolicyGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Employee SHOP Policy Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-09-19</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The employee SHOP Policy details in the montly report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EPDErrorDetail" type="EPDErrorDetailType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exchange Periodic Data Error Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Exchange Periodic Data Error Detail</DescriptionTxt>
+					<DataElementId/>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ErrorMessageDetail" type="ErrorMessageDetailType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Error Message Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-11-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Global type for the Error Message Detail</DescriptionTxt>
+					<DataElementId>163183</DataElementId>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExemptionGrp" type="ExemptionGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exemption Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The Exeption information on exchange generated monthly report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExemptPersonDtl" type="EPDPersonGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exempt Person Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name,SSN,DOB and address of each individual who receives an exemption from the Exchange (could include all family members or one family member) of the individual </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExemptionCoverageDtl" type="ExemptionCoverageDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exemption Coverage Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Exemption coverage for a month with in a year</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ForeignAddressDtl" type="ForeignAddressDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exchange Periodic Data Foreign Address </DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>A physical Foreign Address for sending communications of a person, business.Not the post office box address.</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="HouseholdDtl" type="HouseholdDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Household Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The elements associated with a Household on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="InsuranceCoverageDtl" type="InsuranceCoverageDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Insurance Coverage Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The insurance policy coverage information on exchange generated monthly report for a month with in a year</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="InsurancePolicyGrp" type="InsurancePolicyGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Insurance Policy Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-013</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The Insurance policy on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="IndividualExchangeGrp" type="IndividualExchangeGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Individual Exchange Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2008-01-08</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Appeal details on individual exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="IndividualExchangeDetailGrp" type="IndividualExchangeDetailGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Individual Exchange Detail Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-12-04</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Appeal details on individual exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="InsuredPersonDtl" type="EPDPersonGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Insured Person Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name, SSN , DOB and address of the person covered on the policy with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="IRSHouseholdGrpDtl" type="IRSHouseholdGrpDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>IRS Household Group Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Individual exchange generated monthly report that groups the household account</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OtherRelevantAdultDtl" type="PersonInformationGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Other Relevant Adult Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The elements associated with a other relevant adult on exchange generated monthly report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PersonInformationGrp" type="PersonInformationGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Person Information Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-09-19</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Person information on the report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PrimaryDtl" type="PersonInformationGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Primary Detail Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The elements associated with a primary on exchange generated monthly report and TIN validation info</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PrimaryDtlGrp" type="PrimaryDtlGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Primary Detail Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-21</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Primary person details</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SHOPEmployeeGrp" type="SHOPEmployeeGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Employee Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-09-19</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The SHOP employee details in the montly report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SHOPDependentDtl" type="SHOPExchangePersonDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Dependent Detail </DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name and SSN of the individual </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SHOPEmployeeDtl" type="SHOPExchangePersonDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Employee Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name,SSN of the individual </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SHOPEmployerGrp" type="SHOPEmployerGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Employer Group Type </DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The employee SHOP employer details in the montly report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SHOPEmployerInfoDtl" type="SHOPEmployerInfoDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Employer Information Detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-06-08</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The employee SHOP employer details in the montly report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SHOPExchangeGrp" type="SHOPExchangeGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Exchange Group </DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The employee SHOP exchange in the montly report </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SHOPExchangeDetailGrp" type="SHOPExchangeDetailGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Exchange Detail Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The employee SHOP exchange in the montly report </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SHOPExchangePersonDtl" type="SHOPExchangePersonDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Exchange Person Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name and SSN of the SHOP Exchange Person</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SHOPSpouseDtl" type="SHOPExchangePersonDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Spouse detail</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name and SSN of the individual </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SpouseDtl" type="EPDPersonGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Spouse Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name and SSN of the individual with TIN validation</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SpouseDtlGrp" type="SpouseDtlGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Spouse Detail Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-09-21</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Spouse details</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TaxHouseholdCoverageDtl" type="TaxHouseholdCoverageDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Tax Household CoverageDtl</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Tax household coverage for a month with in a year</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TaxHouseholdGrp" type="TaxHouseholdGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Tax Household Group</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The elements associated with a Household on exchange generated monthly report with error detail</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="USAddressDtl" type="USAddressDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exchange Periodic Data US Address </DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>A physical US address for sending communications of a person, business.Not the post office box address.</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- ============================================= -->
+	<!-- ================                    Local CAC Type Defintions                     ================= -->
+	<!-- ============================================= -->
+	<xsd:complexType name="AssociatedPolicyGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Associated Policy Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with a policies on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:QHPPolicyNum"/>
+			<xsd:element ref="epd:QHPIssuerEIN"/>
+			<xsd:element ref="epd:PediatricDentalPlanPremiumInd" minOccurs="0"/>
+			<xsd:element ref="epd:SLCSPAdjMonthlyPremiumAmt"/>
+			<xsd:element ref="epd:HouseholdAPTCAmt" minOccurs="0"/>
+			<xsd:element ref="epd:TotalHsldMonthlyPremiumAmt"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BusinessNameDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Business Name Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>EFileTypes, December 14, 2007</VersionDescriptionTxt>
+					<DescriptionTxt>Type for a Business Name, 2 Name Lines</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:BusinessNameLine1"/>
+			<xsd:element ref="epd:BusinessNameLine2" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BusinessAddressDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Business Address Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2008-01-08</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Type for a Exchange Periodic Data Business address </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="USAddressDtl"/>
+				<xsd:element ref="ForeignAddressDtl"/>
+			</xsd:choice>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CoveredIndividualGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Covered Individual Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with an covered individual on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="InsuredPersonDtl"/>
+			<xsd:element ref="epd:CoverageStartDt"/>
+			<xsd:element ref="epd:CoverageEndDt" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CompletePersonNameDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Complete Person Name Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Group that provides person's full name</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:PersonFirstName"/>
+			<xsd:element ref="epd:PersonMiddleName" minOccurs="0"/>
+			<xsd:element ref="epd:PersonLastName"/>
+			<xsd:element ref="epd:SuffixName" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DependentDtlGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Dependent Detail Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-21</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the information about the dependent</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="DependentDtl"/>
+			<xsd:element ref="EmployerMECDtl" minOccurs="0" maxOccurs="10"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmployerMECDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Employer MEC Deatil Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-21</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the elements associated with an insured employer on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:EIN"/>
+			<xsd:element ref="epd:TaxpayerValidityCd" minOccurs="0"/>
+			<xsd:element ref="epd:TINValidationInd" minOccurs="0"/>
+			<xsd:element ref="BusinessNameDtl"/>
+			<xsd:element ref="BusinessAddressDtl"/>
+			<xsd:element ref="epd:MECStatusInd"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmployerPlansOfferedGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Employer Plans Offered  Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with an employer plans offered through SHOP </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:QHPIssuerEIN"/>
+			<xsd:element ref="epd:IssuerNm"/>
+			<xsd:element ref="epd:QHPFamilyOrIndivCoverageCd"/>
+			<xsd:element ref="epd:EmployerQHPPremiumContriAmt"/>
+			<xsd:element ref="epd:EmployerQHPPremiumContriPct"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmployeeCoverageDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Employee Coverage Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2008-09-19</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the elements associated with an employee roster coverage in exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:ApplicableCoverageMonthNum"/>
+			<xsd:element ref="CompletePersonNameDtl"/>
+			<xsd:element ref="epd:SSN"/>
+			<xsd:element ref="epd:TaxpayerValidityCd" minOccurs="0"/>
+			<xsd:element ref="epd:TINValidationInd" minOccurs="0"/>
+			<xsd:element ref="epd:EmployerQHPPremiumContriAmt"/>
+			<xsd:element ref="EmployeeSHOPPolicyGrp" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmployeeSHOPPolicyGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Employee SHOP Policy Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>1</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-10-31</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Added element EmployeeQHPShareOfPremiumAmt</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with an employer SHOP policy on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:QHPFamilyOrIndivCoverageCd"/>
+			<xsd:element ref="epd:PolicyCoverageStartDt"/>
+			<xsd:element ref="epd:PolicyCoverageEndDt" minOccurs="0"/>
+			<xsd:element ref="SHOPSpouseDtl" minOccurs="0"/>
+			<xsd:element ref="SHOPDependentDtl" minOccurs="0" maxOccurs="99"/>
+			<xsd:element ref="epd:EmployeeQHPShareOfPremiumAmt"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EPDPersonGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exchange Periodic Data Person Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Name and SSN used by the individual taxpayer </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="CompletePersonNameDtl"/>
+			<xsd:element ref="epd:SSN" minOccurs="0"/>
+			<xsd:element ref="epd:BirthDt" minOccurs="0"/>
+			<xsd:element ref="epd:TaxpayerValidityCd" minOccurs="0"/>
+			<xsd:element ref="epd:TINValidationInd" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EPDErrorDetailType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exchange Periodic Data Errror Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<Description>A group that provides EPD error message related information</Description>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:ErrorMessageCd"/>
+			<xsd:element ref="epd:ErrorMessageTxt" minOccurs="0"/>
+			<xsd:element ref="epd:ErrorValueTxt" minOccurs="0"/>
+			<xsd:element ref="epd:XpathContent" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ErrorMessageDetailType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Errro Message Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-11-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<Description>A group that provides error message related information</Description>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:ErrorMessageCd"/>
+			<xsd:element ref="epd:ErrorMessageTxt" minOccurs="0"/>
+			<xsd:element ref="epd:XpathContent" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExemptionGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exemption Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with an exemption on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="ExemptionCoverageDtl" maxOccurs="12"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExemptionCoverageDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exemption Coverage Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the elements associated with an Exemption coverage on a month</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:ApplicableCoverageMonthNum"/>
+			<xsd:element ref="ExemptPersonDtl"/>
+			<xsd:element ref="epd:ExemptionCertificateNum"/>
+			<xsd:element ref="epd:MonthsExemptStartDt"/>
+			<xsd:element ref="epd:MonthsExemptEndDt"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ForeignAddressDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>EPD Foreign Address Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for group that wraps detail associated with a generic foreign address</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:AddressLine1Txt"/>
+			<xsd:element ref="epd:AddressLine2Txt" minOccurs="0"/>
+			<xsd:element ref="epd:CityNm" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="epd:CountryCd"/>
+				<xsd:element ref="epd:CountryName"/>
+			</xsd:choice>
+			<xsd:element ref="epd:ForeignProvinceNm" minOccurs="0"/>
+			<xsd:element ref="epd:ForeignPostalCd" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HouseholdDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Household Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the elements associated with an household coverage on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="PrimaryDtlGrp"/>
+			<xsd:element ref="SpouseDtlGrp" minOccurs="0"/>
+			<xsd:element ref="DependentDtlGrp" minOccurs="0" maxOccurs="99"/>
+			<xsd:element ref="AssociatedPolicyGrp" maxOccurs="99"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InsuranceCoverageDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Insurance Coverage Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>The elements associated with insurance policy on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:ApplicableCoverageMonthNum"/>
+			<xsd:element ref="epd:QHPPolicyNum"/>
+			<xsd:element ref="epd:PediatricDentalPlanPremiumInd" minOccurs="0"/>
+			<xsd:element ref="epd:QHPIssuerEIN"/>
+			<xsd:element ref="epd:TaxpayerValidityCd" minOccurs="0"/>
+			<xsd:element ref="epd:TINValidationInd" minOccurs="0"/>
+			<xsd:element ref="epd:IssuerNm"/>
+			<xsd:element ref="epd:PolicyCoverageStartDt"/>
+			<xsd:element ref="epd:PolicyCoverageEndDt" minOccurs="0"/>
+			<xsd:element ref="epd:TotalQHPMonthlyPremiumAmt"/>
+			<xsd:element ref="epd:APTCPaymentAmt"/>
+			<xsd:element ref="CoveredIndividualGrp" maxOccurs="99"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InsurancePolicyGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Insurance Policy  Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with an Insurance policy.</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="InsuranceCoverageDtl" maxOccurs="12"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IndividualExchangeGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Individual Exchange Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with an individual exchange group generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:HealthExchangeId"/>
+			<xsd:element ref="IRSHouseholdGrpDtl" maxOccurs="unbounded"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IndividualExchangeDetailGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Individual Exchange Detail Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with an individual exchange group generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:ApplicableCoverageMonthNum"/>
+			<xsd:element ref="TaxHouseholdGrp" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="InsurancePolicyGrp" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IRSHouseholdGrpDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>IRS Household Group Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the elements associated with an IRS household group</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:IRSGroupIdentificationNum"/>
+			<xsd:element ref="TaxHouseholdGrp" maxOccurs="99"/>
+			<xsd:element ref="ExemptionGrp" minOccurs="0" maxOccurs="99"/>
+			<xsd:element ref="InsurancePolicyGrp" minOccurs="0" maxOccurs="99"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PersonInformationGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Person Information Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2008-09-19</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the information about the individual taxpayer </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="CompletePersonNameDtl"/>
+			<xsd:element ref="epd:SSN" minOccurs="0"/>
+			<xsd:element ref="epd:BirthDt" minOccurs="0"/>
+			<xsd:element ref="USAddressDtl" minOccurs="0"/>
+			<xsd:element ref="epd:TaxpayerValidityCd" minOccurs="0"/>
+			<xsd:element ref="epd:TINValidationInd" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PrimaryDtlGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Primary Detail Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-21</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the information about the primary person</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="PrimaryDtl"/>
+			<xsd:element ref="EmployerMECDtl" minOccurs="0" maxOccurs="10"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SHOPEmployeeGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Employee GroupType</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with an employee roster on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="EmployeeCoverageDtl" maxOccurs="12"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SHOPEmployerGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Employer GroupType</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>1</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-10-28</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Removed the TaxpayerValidityCd , TINValidationInd</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with SHOP employer in the policy on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:EIN"/>
+			<xsd:element ref="SHOPEmployerInfoDtl" maxOccurs="12"/>
+			<xsd:element ref="SHOPEmployeeGrp" maxOccurs="1000"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SHOPEmployerInfoDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Employer Information Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>1</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-10-28</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Removed the TaxpayerValidityCd , TINValidationInd</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with SHOP employer in the policy on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:ApplicableCoverageMonthNum"/>
+			<xsd:element ref="BusinessNameDtl"/>
+			<xsd:element ref="BusinessAddressDtl"/>
+			<xsd:element ref="epd:EmployerQHPCoverageStartDt"/>
+			<xsd:element ref="epd:EmployerQHPCoverageTermDt" minOccurs="0"/>
+			<xsd:element ref="epd:TaxpayerValidityCd" minOccurs="0"/>
+			<xsd:element ref="epd:TINValidationInd" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SHOPExchangeGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Exchange Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with SHOP exchange group</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:HealthExchangeId"/>
+			<xsd:element ref="SHOPEmployerGrp" maxOccurs="unbounded"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SHOPExchangePersonDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOP Exchange Person Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>1</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-10-28</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Updated the cardinality of elements</VersionDescriptionTxt>
+					<DescriptionTxt>Name and SSN used by the individual taxpayer </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="CompletePersonNameDtl"/>
+			<xsd:element ref="epd:SSN"/>
+			<xsd:element ref="epd:TaxpayerValidityCd" minOccurs="0"/>
+			<xsd:element ref="epd:TINValidationInd" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.1"/>
+	</xsd:complexType>
+	<xsd:complexType name="SHOPExchangeDetailGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>SHOPExchangeDetailGrpType</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with SHOP exchange group</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:ApplicableCoverageMonthNum"/>
+			<xsd:element ref="SHOPEmployerGrp" maxOccurs="unbounded"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SpouseDtlGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Spouse Detail Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-21</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the information about the spouse</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="SpouseDtl"/>
+			<xsd:element ref="EmployerMECDtl" minOccurs="0" maxOccurs="10"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TaxHouseholdCoverageDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Tax Household Coverage Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-05-17</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>All the elements associated with an tax household coverage on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:ApplicableCoverageMonthNum"/>
+			<xsd:choice>
+				<xsd:element ref="HouseholdDtl"/>
+				<xsd:element ref="OtherRelevantAdultDtl"/>
+			</xsd:choice>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TaxHouseholdGrpType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Tax Household Group Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-05</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for elements associated with an tax household on exchange generated monthly report</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="TaxHouseholdCoverageDtl" maxOccurs="12"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="USAddressDtlType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>US Address Detail Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-03-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial Version</VersionDescriptionTxt>
+					<DescriptionTxt>Content Type for a Exchange Periodic Data person address </DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="epd:AddressLine1Txt"/>
+			<xsd:element ref="epd:AddressLine2Txt" minOccurs="0"/>
+			<xsd:element ref="epd:CityNm"/>
+			<xsd:element ref="epd:USStateCd"/>
+			<xsd:element ref="epd:USZIPCd"/>
+			<xsd:element ref="epd:USZIPExtensionCd" minOccurs="0"/>
+			<xsd:element ref="EPDErrorDetail" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ===================================== -->
+	<!-- ===============                       Local CBC Element Declarations              ================ -->
+	<!-- ===================================== -->
+	<!-- ====================================== -->
+	<!--========================= ===== Local SDT Element Declarations ======================================= -->
+	<!-- ===================================== -->
+</xsd:schema>

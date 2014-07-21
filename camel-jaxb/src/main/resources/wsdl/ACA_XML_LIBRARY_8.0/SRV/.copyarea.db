@@ -1,0 +1,17 @@
+ClearCase CopyAreaDB|4
+ISR_prod\BRMG_Common\wsdl\R4_EPD_05_29_2014\ACA XML LIBRARY 8.0\SRV
+2
+d
+28:IRS-ESBChunkNotificationService-1 0.wsdl|1|146af7e437c|e79|e4d1cf91|1d5b3c4baf7249b0a724cf62f925dc4f|0
+35:IRS-BulkFileProcessingNotificationESBService-1.0.wsdl|1|146af7e45ae|1707|fdb8b716|8b9cbd40a0824a719ca5c04cc75c5e57|0
+2a:HHS-IRS-GetEPDBulkResponseService-1.0.wsdl|1|146af7e4669|14b0|5f69e37b|f120a7ff2666405ab82a0e8f722b54c4|0
+28:IRS-BREChunkNotificationService-1 0.wsdl|1|146af7e5774|ece|4a37e9ea|17cbc724ae7e404fb180f8aa169d2069|0
+2c:IRS-GetHubWindowNotificationService-1.0.wsdl|1|146af7e439b|e99|44a9fc93|b5b3b667430841ebb6fea1957a078553|0
+22:IRS-VerifyExchangeService-1.0.wsdl|1|146af7e463a|1082|aaf96552|31fb19ae1a9d4fa89ea0268b7f8663d4|0
+32:IRS-GetExchangeAuthorizationStatusService-1.0.wsdl|1|146af7e571f|1151|c36af2d1|e677b963e42240f4a69fba771cb8603d|0
+25:IRS-ReceiveFileStatusService-1.0.wsdl|1|146af7e4688|10b0|26e4957c|71d0b9d50d7744dba4b83fdea8d8369b|0
+36:IRS-EPD-BulkFileProcessingNotificationService-1.0.wsdl|1|146af7e43ca|159a|5abe3dcb|768ffc7116d44a9ea348780e7a05e83a|0
+32:IRS-BulkFileProcessingNotificationService-1.0.wsdl|1|146af7e43da|1522|b7ad1862|79201cb437f94c9381f356474dfaa23b|0
+2b:IRS-MissingFileNotificationService-1.0.wsdl|1|146af7e43ab|1356|e1bc73f7|7035c266475b47be8fb9c214de4bdde6|0
+24:IRS-VerifySubmissionService-1 0.wsdl|1|146af7e43f9|1148|4782b563|c9053b844eb44b3ab98b7d7e674d5587|0
+29:HHS-IRS-GetEPDBulkRequestService-1.0.wsdl|1|146af7e5794|1689|8818871a|75c08ae77d274c23b262816fba8ac375|0

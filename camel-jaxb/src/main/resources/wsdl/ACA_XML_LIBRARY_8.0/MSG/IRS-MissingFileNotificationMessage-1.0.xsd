@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by ﻿IRS (IRS) -->
+<xsd:schema xmlns="urn:us:gov:treasury:irs:msg:missingfilenotification" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:irs="urn:us:gov:treasury:irs:common" xmlns:isrepd="urn:us:gov:treasury:irs:ext:aca:isr:4.0" targetNamespace="urn:us:gov:treasury:irs:msg:missingfilenotification" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Component>
+				<DictionaryEntryNm>IRS Message - Missing File Notification Message</DictionaryEntryNm>
+				<MajorVersionNum>1</MajorVersionNum>
+				<MinorVersionNum>0</MinorVersionNum>
+				<VersionEffectiveBeginDt>2013-11-12</VersionEffectiveBeginDt>
+				<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+				<DescriptionTxt>Message payload for obtaining information used for missing file notification</DescriptionTxt>
+			</Component>
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- ===== Imports ===== -->
+	<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+	<xsd:import namespace="urn:us:gov:treasury:irs:ext:aca:isr:4.0" schemaLocation="../EXT/IRS-EXT-ACA-ISR-4.0.xsd"/>
+	<!-- ================================== -->
+	<!-- ===== Root Element Declarations ===== -->
+	<!-- ================================== -->
+	<xsd:element name="MissingFileNotificationRequest" type="MissingFileNotificationRequestType"/>
+	<xsd:element name="MissingFileNotificationResponse" type="MissingFileNotificationResponseType"/>
+	<!-- ============================== -->
+	<!-- ===== Root Type Defintions ===== -->
+	<!-- =============================== -->
+	<xsd:complexType name="MissingFileNotificationRequestType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Missing File Notification Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-07-24</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Message payload for missing file notification</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="isrepd:MissingFileManifestDetailList"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.0"/>
+	</xsd:complexType>
+	<xsd:complexType name="MissingFileNotificationResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Missing File Notification Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-07-24</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Response message for Missing File notification</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:AcknowledgementStatusCd"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.0"/>
+	</xsd:complexType>
+</xsd:schema>

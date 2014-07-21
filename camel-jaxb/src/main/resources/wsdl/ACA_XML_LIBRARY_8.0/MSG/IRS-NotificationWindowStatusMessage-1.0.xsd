@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by ﻿IRS (IRS) -->
+<xsd:schema xmlns="urn:us:gov:treasury:irs:msg:notificationwindowclose" xmlns:irs="urn:us:gov:treasury:irs:common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:us:gov:treasury:irs:msg:notificationwindowclose" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Component>
+				<DictionaryEntryNm>IRS Message - Notification Window Close Message</DictionaryEntryNm>
+				<MajorVersionNum>1</MajorVersionNum>
+				<MinorVersionNum>1</MinorVersionNum>
+				<VersionEffectiveBeginDt>2013-10-25</VersionEffectiveBeginDt>
+				<VersionDescriptionTxt>Updated the cardinality of "WindowCloseNotificationServiceDetail</VersionDescriptionTxt>
+				<DescriptionTxt>Message payload for obtaining notification window status</DescriptionTxt>
+			</Component>
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- ===== Imports ===== -->
+	<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+	<!-- ================================== -->
+	<!-- ===== Root Element Declarations ===== -->
+	<!-- ================================== -->
+	<xsd:element name="NotificationWindowCloseRequest" type="NotificationWindowCloseRequestType"/>
+	<xsd:element name="NotificationWindowCloseResponse" type="NotificationWindowCloseResponseType"/>
+	<!-- ============================== -->
+	<!-- ===== Root Type Defintions ===== -->
+	<!-- =============================== -->
+	<xsd:complexType name="NotificationWindowCloseRequestType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Notification Window Close Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>1</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-01-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Updated the cardinality of "WindowCloseNotificationServiceDetail</VersionDescriptionTxt>
+					<DescriptionTxt>Request message payload for obtaining notification window close status</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:WindowCloseNotificationServiceDetail" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.1"/>
+	</xsd:complexType>
+	<xsd:complexType name="NotificationWindowCloseResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Notification Window Close Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-01-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Response Message payload for obtaining notification window close status</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:AcknowledgementStatusCd"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.0"/>
+	</xsd:complexType>
+</xsd:schema>

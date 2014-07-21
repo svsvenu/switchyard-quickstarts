@@ -33,7 +33,7 @@ public class Logs {
 	
 	public String toString( ) {
 		
-		return "id: " + id + "logMessage " + logMessage;
+		return "id: " + id + "logMessage"  + logMessage;
 		
 	}
 

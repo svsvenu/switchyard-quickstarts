@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 
+xmlns="urn:us:gov:treasury:irs:srv:verifysubmission" 
+name="VerifySubmissionService-1.0" 
+targetNamespace="urn:us:gov:treasury:irs:srv:verifysubmission"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+xmlns:irsMSG="urn:us:gov:treasury:irs:msg:verifysubmission" 
+xmlns:irs="urn:us:gov:treasury:irs:common" 
+xmlns:irsHDR="urn:us:gov:treasury:irs:msg:acabusinessheader" 
+xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"> 
+
+    <wsdl:documentation>
+		<WSDLComponent>
+			<DescriptionAndSemantics>This service will perform these checks - State Exchange Authorization, File Duplicate, Batch Re-submission</DescriptionAndSemantics>
+			<Provider>Example Provider</Provider>
+			<EndPointInformation/>
+			<ChannelsSupported/>
+			<Operator/>
+			<AvailabilityInformation/>
+			<CapacityInformation/>
+			<PolicyGuardImplementation/>
+			<AccessControl/>
+			<Dependency/>
+			<ChargeBackInformation/>
+			<ProvisioningInformation/>
+			<Consumers>Example Consumer</Consumers>
+		</WSDLComponent>
+		<Component>
+			<DictionaryEntryNm>Verify Submission Service</DictionaryEntryNm>
+			<MajorVersionNum>1</MajorVersionNum>
+			<MinorVersionNum>0</MinorVersionNum>
+			<VersionEffectiveBeginDt>2012-09-14</VersionEffectiveBeginDt>
+			<VersionDescriptionTxt>version: ACA EPD XML LIBRARY 8.0 as of 05072014</VersionDescriptionTxt>
+			<DescriptionTxt>WSDL Definition: This service will perform these checks - State Exchange Authorization, File Duplicate, Batch Re-submission</DescriptionTxt>
+		</Component>
+	</wsdl:documentation>
+	
+  <!--==== Types ==== -->
+  <wsdl:types>
+    <xsd:schema>  
+	  <xsd:import namespace="urn:us:gov:treasury:irs:msg:acabusinessheader" schemaLocation="../MSG/HHS-IRS-ACABusinessHeaderMessage-1.0.xsd"/>
+	  <xsd:import namespace="urn:us:gov:treasury:irs:msg:verifysubmission" schemaLocation="../MSG/IRS-VerifySubmissionMessage-1.0.xsd"/>
+	  <xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd">
+	  </xsd:import>
+	 </xsd:schema>   
+  </wsdl:types>    
+   
+  <!--==== Messages ==== -->
+ <wsdl:message name="Fault">
+	<wsdl:part name="fault" element="irs:ErrorMessageDetail"/>
+ </wsdl:message>
+ <wsdl:message name="VerifySubmissionRequest"> 	
+    <wsdl:part name="VerifySubmissionRequest" element="irsMSG:VerifySubmissionRequest"/>    
+  </wsdl:message>
+  <wsdl:message name="VerifySubmissionResponse">
+    <wsdl:part name="VerifySubmissionResponse" element="irsMSG:VerifySubmissionResponse"/>
+  </wsdl:message>
+   <wsdl:message name="ACABusinessHeader">
+  		<wsdl:part name="ACABusinessHeader" element="irsHDR:ACABusinessHeader" /> 
+  </wsdl:message>  
+  
+  <!--==== Port Type ==== -->
+  <wsdl:portType name="VerifySubmissionPort">
+    <wsdl:operation name="VerifySubmission">
+         <wsdl:input message="VerifySubmissionRequest"/>
+         <wsdl:output message="VerifySubmissionResponse"/>
+         <wsdl:fault name="fault" message="Fault"/>
+    </wsdl:operation>    
+  </wsdl:portType>
+  
+    <!--==== Binding ==== -->
+    <wsdl:binding name="VerifySubmissionBinding" type="VerifySubmissionPort">
+    <soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>    
+        <wsdl:operation name="VerifySubmission">
+		 <soapbind:operation soapAction="VerifySubmission"/>
+		    <wsdl:input>   
+		    	<soapbind:header message="ACABusinessHeader" part="ACABusinessHeader" use="literal"/>    	
+				<soapbind:body parts = "VerifySubmissionRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+				<soapbind:body parts = "VerifySubmissionResponse" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+			   <soapbind:fault name="fault" use="literal"/>
+			</wsdl:fault>    
+        </wsdl:operation>    
+    </wsdl:binding>
+  
+  <!--==== Service ==== -->
+  <wsdl:service name="VerifySubmissionService">
+    <wsdl:port binding="VerifySubmissionBinding" name="VerifySubmissionPort">
+      <soapbind:address location="https://localhost:10501/ws/IRSACAEPD.communication.verifySubmission/VerifySubmissionPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

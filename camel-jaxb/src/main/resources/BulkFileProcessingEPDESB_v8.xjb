@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings version="2.0" 
+      xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+      xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
+      
+      <jaxb:bindings schemaLocation="wsdl/ACA_XML_LIBRARY_8.0/MSG/HHS-IRS-ACABulkRequestExchangeMessage-1.0.xsd" node="//xsd:schema">
+              <jaxb:schemaBindings>
+                  <jaxb:package name="us.gov.treasury.irs.epd.bulkfileproc" />
+              </jaxb:schemaBindings>
+      </jaxb:bindings>
+      
+      <jaxb:bindings schemaLocation="wsdl/ACA_XML_LIBRARY_8.0/MSG/HHS-IRS-ACABusinessHeaderMessage-1.0.xsd" node="//xsd:schema">
+              <jaxb:schemaBindings>
+                  <jaxb:package name="us.gov.treasury.irs.epd.bulkfileproc.common" />
+              </jaxb:schemaBindings>
+      </jaxb:bindings>
+      
+      <jaxb:bindings schemaLocation="wsdl/ACA_XML_LIBRARY_8.0/COMMON/IRS-CAC-8.0.xsd" node="//xsd:schema">
+              <jaxb:schemaBindings>
+                  <jaxb:package name="us.gov.treasury.irs.epd.bulkfileproc.common" />
+              </jaxb:schemaBindings>
+      </jaxb:bindings>
+
+      <jaxb:bindings schemaLocation="wsdl/ACA_XML_LIBRARY_8.0/EXT/IRS-EXT-ACA-ISR-4.0.xsd" node="//xsd:schema">
+              <jaxb:schemaBindings>
+                  <jaxb:package name="us.gov.treasury.irs.epd.bulkfileproc.ext.aca.isrepd" />
+              </jaxb:schemaBindings>
+      </jaxb:bindings>
+
+</jaxb:bindings>

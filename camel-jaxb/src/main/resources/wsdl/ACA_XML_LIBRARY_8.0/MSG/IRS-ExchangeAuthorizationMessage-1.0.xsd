@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by ﻿IRS (IRS) -->
+<xsd:schema xmlns="urn:us:gov:treasury:irs:msg:getexchangeauthorizationstatus" xmlns:irs="urn:us:gov:treasury:irs:common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:us:gov:treasury:irs:msg:getexchangeauthorizationstatus" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Component>
+				<DictionaryEntryNm>IRS Message - Exchange Authorization Message</DictionaryEntryNm>
+				<MajorVersionNum>1</MajorVersionNum>
+				<MinorVersionNum>0</MinorVersionNum>
+				<VersionEffectiveBeginDt>2012-12-07</VersionEffectiveBeginDt>
+				<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+				<DescriptionTxt>Message payload for obtaining Authorization status for any given Exchange</DescriptionTxt>
+			</Component>
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- ===== Imports ===== -->
+	<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+	<!-- ================================== -->
+	<!-- ===== Root Element Declarations ===== -->
+	<!-- ================================== -->
+	<xsd:element name="BusinessCorrelationIdResponse" type="BusinessCorrelationIdResponseType"/>
+	<xsd:element name="ExchangeAuthorizationRequest" type="ExchangeAuthorizationRequestType"/>
+	<xsd:element name="ExchangeAuthorizationResponse" type="ExchangeAuthorizationResponseType"/>
+	<xsd:element name="ExchangeIdResponse" type="ExchangeIdResponseType"/>
+	<!-- ============================== -->
+	<!-- ===== Root Type Defintions ===== -->
+	<!-- =============================== -->
+	<xsd:complexType name="BusinessCorrelationIdResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Business CorrelationId Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2014-05-27</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Message response payload for obtaining business authorization status for any given Exchange</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:ACABusinessCorrelationId"/>
+			<xsd:element ref="irs:AuthorizationStatusInd"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExchangeAuthorizationRequestType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exchange Authorization Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-12-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Message request payload for obtaining authorization status for any given Exchange</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:ACABusinessCorrelationId" minOccurs="0"/>
+			<xsd:element ref="irs:HealthExchangeId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExchangeAuthorizationResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exchange Authorization Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2012-12-07</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Response Message payload for obtaining authorization status for any given Exchange</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="BusinessCorrelationIdResponse" minOccurs="0"/>
+			<xsd:element ref="ExchangeIdResponse" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExchangeIdResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Exchange Id Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2014-05-27</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Message response payload for obtaining authorization status for any given Exchange</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:HealthExchangeId"/>
+			<xsd:element ref="irs:AuthorizationStatusInd"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

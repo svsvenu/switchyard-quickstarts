@@ -1,0 +1,91 @@
+<wsdl:definitions 
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+   xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" 
+   xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+   xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+   xmlns:irs="urn:us:gov:treasury:irs:common" 
+   xmlns:irsMSG="urn:us:gov:treasury:irs:msg:chunknotification"
+   xmlns="urn:us:gov:treasury:irs:srv:chunknotification"
+   name="BREChunkNotificationService-1.0" 
+   targetNamespace="urn:us:gov:treasury:irs:srv:chunknotification">
+
+<wsdl:documentation>
+		<WSDLComponent>
+			<DescriptionAndSemantics>This service will..</DescriptionAndSemantics>
+			<Provider>Example Provider</Provider>
+			<EndPointInformation/>
+			<ChannelsSupported/>
+			<Operator/>
+			<AvailabilityInformation/>
+			<CapacityInformation/>
+			<PolicyGuardImplementation/>
+			<AccessControl/>
+			<Dependency/>
+			<ChargeBackInformation/>
+			<ProvisioningInformation/>
+			<Consumers>Example Consumer</Consumers>
+		</WSDLComponent>
+		<Component>
+			<DictionaryEntryNm>BRE Chunk Notification Service</DictionaryEntryNm>
+			<MajorVersionNum>1</MajorVersionNum>
+			<MinorVersionNum>0</MinorVersionNum>
+			<VersionEffectiveBeginDt>2012-09-14</VersionEffectiveBeginDt>
+			<VersionDescriptionTxt>version: ACA EPD XML LIBRARY 8.0 as of 05072014</VersionDescriptionTxt>
+			<DescriptionTxt>WSDL Definition: This service will receive a notification and send a response</DescriptionTxt>
+		</Component>
+	</wsdl:documentation>
+	
+<!--==== Types ==== -->
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="urn:us:gov:treasury:irs:msg:chunknotification" schemaLocation="../MSG/IRS-ChunkNotificationMessage-1.0.xsd"/>
+			<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+		</xsd:schema>
+    </wsdl:types>
+	
+	 <!--==== Messages ==== -->
+	<wsdl:message name="Fault">
+		<wsdl:part name="fault" element="irs:ErrorMessageDetail"/>
+	</wsdl:message>
+	<wsdl:message name="ChunkNotificationRequest">
+		<wsdl:part name="ChunkNotificationRequest" element="irsMSG:ChunkNotificationRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ChunkNotificationResponse">
+		<wsdl:part name="ChunkNotificationResponse" element="irsMSG:ChunkNotificationResponse"/>
+	</wsdl:message>
+	
+	<!--==== Port Type ==== -->
+	<wsdl:portType name="ChunkNotificationPortType">
+		<wsdl:operation name="ChunkNotificationRequest">
+			<wsdl:input message="ChunkNotificationRequest"/>
+			<wsdl:output message="ChunkNotificationResponse"/>
+			<wsdl:fault name="fault" message="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<!--==== Binding ==== -->
+	<wsdl:binding name="ChunkNotificationPortTypeBinding"	type="ChunkNotificationPortType">	
+  	<soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+  	  	<wsdl:operation name="ChunkNotificationRequest">
+  	 	<soapbind:operation soapAction="ChunkNotificationRequest" />
+  		<wsdl:input>
+  			<soapbind:body parts="ChunkNotificationRequest" use="literal" />
+  		</wsdl:input>
+  		<wsdl:output> 
+  			<soapbind:body parts="ChunkNotificationResponse" use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="fault">
+		        <soapbind:fault name="fault" use="literal"/>
+	        </wsdl:fault> 
+  	</wsdl:operation>
+  </wsdl:binding>
+
+  <!--==== Service ==== -->
+  <wsdl:service name="BREChunkNotificationService">
+  	<wsdl:port name="ChunkNotificationPort" binding="ChunkNotificationPortTypeBinding">
+  		<soapbind:address location="https://localhost:8080/BREChunkNotificationService/ChunkNotificationPortType" />
+  	</wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

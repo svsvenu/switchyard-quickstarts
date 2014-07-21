@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="urn:us:gov:treasury:irs:msg:receiveepdfilestatus" xmlns:irs="urn:us:gov:treasury:irs:common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:isrepd="urn:us:gov:treasury:irs:ext:aca:isr:4.0" targetNamespace="urn:us:gov:treasury:irs:msg:receiveepdfilestatus" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Component>
+				<DictionaryEntryNm>Receive EPD File Status Message</DictionaryEntryNm>
+				<MajorVersionNum>1</MajorVersionNum>
+				<MinorVersionNum>0</MinorVersionNum>
+				<VersionEffectiveBeginDt>2013-10-29</VersionEffectiveBeginDt>
+				<VersionDescriptionTxt>Added new elements to request</VersionDescriptionTxt>
+				<DescriptionTxt>Defines the request and response format for the Receive EPD File Status service</DescriptionTxt>
+			</Component>
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- ===== Imports ===== -->
+	<!-- Make sure you reference the right schema file name  -->
+	<xsd:import namespace="urn:us:gov:treasury:irs:common" schemaLocation="../COMMON/IRS-CAC-8.0.xsd"/>
+	<xsd:import namespace="urn:us:gov:treasury:irs:ext:aca:isr:4.0" schemaLocation="../EXT/IRS-EXT-ACA-ISR-4.0.xsd"/>
+	<!-- ============================ -->
+	<!-- ===== Element Declarations ===== -->
+	<!-- ============================ -->
+	<xsd:element name="ReceiveFileStatusRequest" type="ReceiveFileStatusRequestType"/>
+	<xsd:element name="ReceiveFileStatusResponse" type="ReceiveFileStatusResponseType"/>
+	<!-- ======================== -->
+	<!-- ===== Type Defintions ===== -->
+	<!-- ======================== -->
+	<xsd:complexType name="ReceiveFileStatusRequestType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Receive File Status Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>2</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-10-29</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial version</VersionDescriptionTxt>
+					<DescriptionTxt>Defines the request format for the Receive File Status service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ReceiveFileStatusRequestDetail" type="ReceiveFileStatusRequestDetailType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.2"/>
+	</xsd:complexType>
+	<xsd:complexType name="ReceiveFileStatusResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Receive File Status Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-07-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial vesion</VersionDescriptionTxt>
+					<DescriptionTxt>Defines the response format for the Receive File Status service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ReceiveFileStatusResponseDetail" type="ReceiveFileStatusResponseDetailType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string" fixed="1.2"/>
+	</xsd:complexType>
+	<xsd:complexType name="ReceiveFileStatusRequestDetailType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Receive File Status Request Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>2</MinorVersionNum>
+					<VersionEffectiveBeginDt>2014-01-23</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>New elements are added</VersionDescriptionTxt>
+					<DescriptionTxt>Defines the request format for the Receive File Status service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="isrepd:ACABatchManifestDetail"/>
+			<xsd:element ref="isrepd:FileStatusCd"/>
+			<xsd:element ref="irs:SubmissionMonthNum" minOccurs="0"/>
+			<xsd:element ref="irs:SubmissionYr" minOccurs="0"/>
+			<xsd:element ref="irs:ApplicableCoverageYr" minOccurs="0"/>
+			<xsd:element ref="isrepd:RequestResponseMetricsDetail"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="isrepd:CMSResponseDetail" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<!-- Updated the request structure according to new implementation-->
+	</xsd:complexType>
+	<xsd:complexType name="ReceiveFileStatusResponseDetailType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Component>
+					<DictionaryEntryNm>Receive File Status Response Type</DictionaryEntryNm>
+					<MajorVersionNum>1</MajorVersionNum>
+					<MinorVersionNum>0</MinorVersionNum>
+					<VersionEffectiveBeginDt>2013-07-01</VersionEffectiveBeginDt>
+					<VersionDescriptionTxt>Initial vesion</VersionDescriptionTxt>
+					<DescriptionTxt>Defines the response format for the UpdateFileStatus service</DescriptionTxt>
+				</Component>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="irs:AcknowledgementStatusCd"/>
+			<xsd:element ref="irs:ErrorMessageDetail" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
