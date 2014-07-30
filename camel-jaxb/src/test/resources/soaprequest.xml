@@ -1,0 +1,40 @@
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:us:gov:treasury:irs:ext:aca:isrepd" xmlns:urn1="urn:us:gov:treasury:irs:common" xmlns:urn2="urn:us:gov:treasury:irs:msg:acabusinessheader" xmlns:urn3="urn:us:gov:treasury:irs:msg:hhsirsacabulkrequestexchange">
+   <soapenv:Header>
+      <urn:ACABatchManifestDetail>
+         <urn:ACABatchDetail>
+            <urn1:BatchId>2014-03-31T11:27:48Z</urn1:BatchId>
+            <urn1:BatchPartnerId>03.SC*.SPE.001.012</urn1:BatchPartnerId>
+            <urn1:BatchAttachmentTransmissionQty>1</urn1:BatchAttachmentTransmissionQty>
+            <urn1:BatchCategoryCd>IRS_EOM_IND_REQ</urn1:BatchCategoryCd>
+            <urn:BatchCategoryCd/><urn1:BatchTransmissionQty>1</urn1:BatchTransmissionQty>
+         </urn:ACABatchDetail>
+         <urn1:ACABatchTransmissionDetail>
+            <urn1:TransmissionAttachmentQty>1</urn1:TransmissionAttachmentQty>
+            <urn1:SequenceNum>1</urn1:SequenceNum>
+         </urn1:ACABatchTransmissionDetail>
+         <urn1:ACAReportingServiceDetail>
+            <urn1:ReportPeriodDate>
+               <urn1:YearMonth>2013-04</urn1:YearMonth>
+            </urn1:ReportPeriodDate>
+         </urn1:ACAReportingServiceDetail>
+         <urn:ACAAttachmentDetail>
+            <urn1:BinaryFormatCd>application/xml</urn1:BinaryFormatCd>
+            <urn1:ChecksumAugmentationNum>79054025255fb1a26e4bc422aef54eb4</urn1:ChecksumAugmentationNum>
+            <urn1:AttachmentByteSizeNum>222</urn1:AttachmentByteSizeNum>
+            <urn1:DocumentSystemFileNm>EOM_Request_00001_20140305T111210345Z.xml</urn1:DocumentSystemFileNm>
+            <urn:DocumentSystemFileNm/><urn1:SystemDocumentId>1</urn1:SystemDocumentId><urn1:DocumentSequenceNum/>
+            <urn1:SequenceNum>1</urn1:SequenceNum>
+         </urn:ACAAttachmentDetail>
+      </urn:ACABatchManifestDetail>
+      <urn2:ACABusinessHeader version="1.0">
+         <urn1:ACABusinessCorrelationId>130e0441-e29b-41e4-a716-446655441543:EPD00::03.SC*.SPE.001.001:B</urn1:ACABusinessCorrelationId>
+         <urn1:Timestamp>2014-03-31T11:27:48Z</urn1:Timestamp>
+      </urn2:ACABusinessHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn3:ACABulkRequestExchange version="1.0">
+         <urn1:BulkExchangeFile>cid:epd</urn1:BulkExchangeFile>
+      </urn3:ACABulkRequestExchange>
+   </soapenv:Body>
+</soapenv:Envelope>

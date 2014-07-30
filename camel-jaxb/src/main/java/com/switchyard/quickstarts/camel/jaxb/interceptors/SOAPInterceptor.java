@@ -1,3 +1,5 @@
+package com.switchyard.quickstarts.camel.jaxb.interceptors;
+
 import java.io.IOException;
 
 import org.apache.cxf.attachment.AttachmentDeserializer;

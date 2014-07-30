@@ -1,0 +1,43 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+      <urn:ACABatchManifestDetail xmlns:urn="urn:us:gov:treasury:irs:ext:aca:isrepd" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+         <urn:ACABatchDetail>
+            <urn1:BatchId xmlns:urn1="urn:us:gov:treasury:irs:common">2014-03-31T11:27:48Z</urn1:BatchId>
+            <urn1:BatchPartnerId xmlns:urn1="urn:us:gov:treasury:irs:common">03.SC*.SPE.001.012</urn1:BatchPartnerId>
+            <urn1:BatchAttachmentTransmissionQty xmlns:urn1="urn:us:gov:treasury:irs:common">1</urn1:BatchAttachmentTransmissionQty>
+            <urn1:BatchCategoryCd xmlns:urn1="urn:us:gov:treasury:irs:common">IRS_EOM_IND_REQ</urn1:BatchCategoryCd>
+            <urn:BatchCategoryCd/>
+            <urn1:BatchTransmissionQty xmlns:urn1="urn:us:gov:treasury:irs:common">1</urn1:BatchTransmissionQty>
+         </urn:ACABatchDetail>
+         <urn1:ACABatchTransmissionDetail xmlns:urn1="urn:us:gov:treasury:irs:common">
+            <urn1:TransmissionAttachmentQty>1</urn1:TransmissionAttachmentQty>
+            <urn1:SequenceNum>1</urn1:SequenceNum>
+         </urn1:ACABatchTransmissionDetail>
+         <urn1:ACAReportingServiceDetail xmlns:urn1="urn:us:gov:treasury:irs:common">
+            <urn1:ReportPeriodDate>
+               <urn1:YearMonth>2013-04</urn1:YearMonth>
+            </urn1:ReportPeriodDate>
+         </urn1:ACAReportingServiceDetail>
+         <urn:ACAAttachmentDetail>
+            <urn1:BinaryFormatCd xmlns:urn1="urn:us:gov:treasury:irs:common">application/xml</urn1:BinaryFormatCd>
+            <urn1:ChecksumAugmentationNum xmlns:urn1="urn:us:gov:treasury:irs:common">79054025255fb1a26e4bc422aef54eb4</urn1:ChecksumAugmentationNum>
+            <urn1:AttachmentByteSizeNum xmlns:urn1="urn:us:gov:treasury:irs:common">222</urn1:AttachmentByteSizeNum>
+            <urn1:DocumentSystemFileNm xmlns:urn1="urn:us:gov:treasury:irs:common">EOM_Request_00001_20140305T111210345Z.xml</urn1:DocumentSystemFileNm>
+            <urn:DocumentSystemFileNm/>
+            <urn1:SystemDocumentId xmlns:urn1="urn:us:gov:treasury:irs:common">1</urn1:SystemDocumentId>
+            <urn1:DocumentSequenceNum xmlns:urn1="urn:us:gov:treasury:irs:common"/>
+            <urn1:SequenceNum xmlns:urn1="urn:us:gov:treasury:irs:common">1</urn1:SequenceNum>
+         </urn:ACAAttachmentDetail>
+      </urn:ACABatchManifestDetail>
+      <urn2:ACABusinessHeader version="1.0" xmlns:urn2="urn:us:gov:treasury:irs:msg:acabusinessheader" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+         <urn1:ACABusinessCorrelationId xmlns:urn1="urn:us:gov:treasury:irs:common">130e0441-e29b-41e4-a716-446655441543:EPD00::03.SC*.SPE.001.001:B</urn1:ACABusinessCorrelationId>
+         <urn1:Timestamp xmlns:urn1="urn:us:gov:treasury:irs:common">2014-03-31T11:27:48Z</urn1:Timestamp>
+      </urn2:ACABusinessHeader>
+      <wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">GetEPDBulkRequestExchange</wsa:Action>
+   </SOAP-ENV:Header>
+   <soap:Body>
+      <urn3:ACABulkRequestExchange version="1.0" xmlns:urn3="urn:us:gov:treasury:irs:msg:hhsirsacabulkrequestexchange">
+         <urn1:BulkExchangeFile xmlns:urn1="urn:us:gov:treasury:irs:common">cid:epd</urn1:BulkExchangeFile>
+      </urn3:ACABulkRequestExchange>
+   </soap:Body>
+</soap:Envelope>
